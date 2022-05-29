@@ -1,18 +1,18 @@
 package View;
 
 import Controller.ControllerNewGame;
-import Observer.ObserverNewGame;
+import Observer.ObserverMain;
 
 /**
  *
  * @author Barth_Reichert
  */
-public class NewGame extends javax.swing.JFrame implements ObserverNewGame {
+public class Main extends javax.swing.JFrame implements ObserverMain {
 
     ControllerNewGame newGameControl;
-    Map view;
+    Game view;
 
-    public NewGame() {
+    public Main() {
         initComponents();
         setLocationRelativeTo(null);
         newGameControl = ControllerNewGame.getIntance();
@@ -166,18 +166,18 @@ public class NewGame extends javax.swing.JFrame implements ObserverNewGame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewGame().setVisible(true);
+                new Main().setVisible(true);
             }
         });
     }
@@ -195,7 +195,7 @@ public class NewGame extends javax.swing.JFrame implements ObserverNewGame {
 
     @Override
     public void selectMap() {
-        view = Map.getIntance();
+        view = Game.getIntance();
 
         view.setVisible(true);
         setVisible(false);

@@ -8,26 +8,26 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import Controller.ControllerMap;
-import Observer.ObserverMap;
+import Observer.ObserverGame;
 
 /**
  *
  * @author Barth_Reichert
  */
-public class Map extends javax.swing.JFrame implements ObserverMap {
+public class Game extends javax.swing.JFrame implements ObserverGame {
     
     private ControllerMap controlMap;
     
-    private static Map instance = null;
+    private static Game instance = null;
     
-    public static Map getIntance() {
+    public static Game getIntance() {
         if (instance == null) {
-            instance = new Map();
+            instance = new Game();
         }
         return instance;
     }
     
-    private Map() {
+    private Game() {
         initComponents();
         setLocationRelativeTo(null);
         controlMap = ControllerMap.getIntance();
@@ -298,7 +298,7 @@ public class Map extends javax.swing.JFrame implements ObserverMap {
         jTable1.setRowHeight(40);
         jTable1.setModel(model);
         jTable1.setOpaque(false);
-        jTable1.setDefaultRenderer(Object.class, new ImageRenderer());
+        jTable1.setDefaultRenderer(Object.class, new TableCellRender());
         
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
         renderer.setPreferredSize(new Dimension(0, 0));

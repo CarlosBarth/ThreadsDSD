@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import Observer.ObserverMap;
 import Model.Car;
 import Model.Cell;
-import Model.MonitorRoad;
-import Model.MutexRoad;
+import Model.RoadMonitor;
+import Model.RoadMutex;
+import Observer.ObserverGame;
 
 /**
  *
@@ -58,8 +58,8 @@ public class ControllerMap {
         String arquivo = "./malhas/malha" + mapID + ".txt";
         try {
             BufferedReader in = new BufferedReader(new FileReader(arquivo));
-            this.rows = Integer.parseInt(in.readLine());
-            this.collumns = Integer.parseInt(in.readLine());
+            this.rows = Integer.parseInt(in.readLine().trim());
+            this.collumns = Integer.parseInt(in.readLine().trim());
 
             matrix = new int[rows][collumns];
             for (int i = 0; i < rows; i++) {
@@ -79,14 +79,14 @@ public class ControllerMap {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < collumns; j++) {
                 if (matrix[i][j] != 0) {
-                    MutexRoad newMutex;
-                    MonitorRoad newMonitor;
+                    RoadMutex newMutex;
+                    RoadMonitor newMonitor;
                     if (isMutex) {
-                        newMutex = new MutexRoad(matrix[i][j], i, j);
+                        newMutex = new RoadMutex(matrix[i][j], i, j);
                         matrixCell[i][j] = newMutex;
                         roadSpawner(newMutex);
                     } else {
-                        newMonitor = new MonitorRoad(matrix[i][j], i, j);
+                        newMonitor = new RoadMonitor(matrix[i][j], i, j);
                         matrixCell[i][j] = newMonitor;
                         roadSpawner(newMonitor);
                     }
@@ -329,49 +329,49 @@ public class ControllerMap {
     }
 
     //observer
-    private List<ObserverMap> mapObserver = new ArrayList<>();
+    private List<ObserverGame> mapObserver = new ArrayList<>();
 
-    public void attachMap(ObserverMap obs) {
+    public void attachMap(ObserverGame obs) {
         this.mapObserver.add(obs);
     }
 
-    public void detach(ObserverMap obs) {
+    public void detach(ObserverGame obs) {
         this.mapObserver.remove(obs);
     }
 
     private void notifyQtdCars(int value) {
-        for (ObserverMap obs : mapObserver) {
+        for (ObserverGame obs : mapObserver) {
             obs.setQtdCars(value);
         }
     }
 
     private void notifyQtdCarsError() {
-        for (ObserverMap obs : mapObserver) {
+        for (ObserverGame obs : mapObserver) {
             obs.setQtdCarsError();
         }
     }
 
     private void notifySetTable(int[][] matrix) {
-        for (ObserverMap obs : mapObserver) {
+        for (ObserverGame obs : mapObserver) {
             obs.setTable(matrix, rows, collumns);
         }
 
     }
 
     public void notifyRepaint() {
-        for (ObserverMap obs : mapObserver) {
+        for (ObserverGame obs : mapObserver) {
             obs.rePaint();
         }
     }
 
     private void notifyDisableButton(boolean on) {
-        for (ObserverMap obs : mapObserver) {
+        for (ObserverGame obs : mapObserver) {
             obs.setButton(on);
         }
     }
 
     private void notifyVelocidadeInvalida() {
-        for (ObserverMap obs : mapObserver) {
+        for (ObserverGame obs : mapObserver) {
             obs.velocidadeInvalida();
         }
     }

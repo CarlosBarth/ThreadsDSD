@@ -38,7 +38,6 @@ public abstract class Cell {
         verifyCruzamento();
     }
 
-    //Esté vai ser o método onde haverá o controle de limite de carros(threads) por caminho (no máximo 1 por vez)
     public abstract void receiveCar(Car car);
 
     public abstract void removeCar();
@@ -56,7 +55,7 @@ public abstract class Cell {
     }
 
     public void setCar(Car car) {
-        this.car = car; //necessário para informar que está com um carro no momento
+        this.car = car;
         
     }
 

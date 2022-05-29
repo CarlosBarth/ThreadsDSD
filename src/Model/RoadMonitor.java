@@ -4,9 +4,9 @@ package Model;
  *
  * @author Barth_Reichert
  */
-public class MonitorRoad extends Cell {
+public class RoadMonitor extends Cell {
 
-    public MonitorRoad(int direction, int posX, int posY) {
+    public RoadMonitor(int direction, int posX, int posY) {
         super(direction, posX, posY);
     }
 

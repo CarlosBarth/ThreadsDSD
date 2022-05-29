@@ -4,7 +4,7 @@ package Observer;
  *
  * @author Barth_Reichert
  */
-public interface ObserverMap {
+public interface ObserverGame {
 
     void setQtdCars(int value);
 

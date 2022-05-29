@@ -4,7 +4,7 @@ package Observer;
  *
  * @author Barth_Reichert
  */
-public interface ObserverNewGame {
+public interface ObserverMain {
     
     void selectMap();
     

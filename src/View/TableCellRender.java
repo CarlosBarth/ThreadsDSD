@@ -7,7 +7,7 @@ import java.awt.*;
  *
  * @author Barth_Reichert
  */
-public class ImageRenderer extends DefaultTableCellRenderer{
+public class TableCellRender extends DefaultTableCellRenderer{
     
 
 

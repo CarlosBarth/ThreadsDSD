@@ -9,11 +9,11 @@ import java.util.logging.Logger;
  *
  * @author Barth_Reichert
  */
-public class MutexRoad extends Cell {
+public class RoadMutex extends Cell {
 
     private final Semaphore semaforo;
 
-    public MutexRoad(int direction, int posX, int posY) {
+    public RoadMutex(int direction, int posX, int posY) {
         super(direction, posX, posY);
         this.semaforo = new Semaphore(1);
     }
@@ -27,7 +27,7 @@ public class MutexRoad extends Cell {
             semaforo.acquire();
             setCar(car);
         } catch (InterruptedException ex) {
-            Logger.getLogger(MutexRoad.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RoadMutex.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             semaforo.release();
         }

@@ -2,8 +2,8 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import Observer.ObserverNewGame;
-import Observer.ObserverMap;
+import Observer.ObserverMain;
+import Observer.ObserverGame;
 
 /**
  *
@@ -30,18 +30,18 @@ public class ControllerNewGame {
         notifyNewGameStart();
     }
 
-    private List<ObserverNewGame> createNewGameObservers = new ArrayList<>();
+    private List<ObserverMain> createNewGameObservers = new ArrayList<>();
 
-    public void attachMap(ObserverNewGame obs) {
+    public void attachMap(ObserverMain obs) {
         this.createNewGameObservers.add(obs);
     }
 
-    public void detach(ObserverMap obs) {
+    public void detach(ObserverGame obs) {
         this.createNewGameObservers.remove(obs);
     }
 
     private void notifyNewGameStart() {
-        for (ObserverNewGame obs : createNewGameObservers) {
+        for (ObserverMain obs : createNewGameObservers) {
             obs.selectMap();
         }
     }
