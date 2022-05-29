@@ -38,7 +38,8 @@ public class ControllerCar extends Thread {
             //Inicia o ciclo de vida do carro
             while (!this.car.getCurrentRoad().getNextCell().isEmpty()) {
 
-                sleep(velocidade); //velocidade do carro
+                //velocidade do carro
+                sleep(velocidade); 
 
                 int numRand = rand.nextInt(2);
                 if (this.car.getCurrentRoad().isIsCruzamento()) {

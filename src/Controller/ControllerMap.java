@@ -106,29 +106,37 @@ public class ControllerMap {
                     try {
                         switch (road.getDirection()) {
                             case 1:
-                                road.addNextCell(matrixCell[i - 1][j]); //cima
+                                //cima
+                                road.addNextCell(matrixCell[i - 1][j]); 
 
                                 break;
                             case 2:
-                                road.addNextCell(matrixCell[i][j + 1]); //direita
+                                //direita
+                                road.addNextCell(matrixCell[i][j + 1]); 
                                 break;
                             case 3:
-                                road.addNextCell(matrixCell[i + 1][j]); // baixo
+                                // baixo
+                                road.addNextCell(matrixCell[i + 1][j]); 
                                 break;
                             case 4:
-                                road.addNextCell(matrixCell[i][j - 1]); // esquerda
+                                // esquerda
+                                road.addNextCell(matrixCell[i][j - 1]); 
                                 break;
                             case 5:
-                                road.addNextCell(matrixCell[i - 1][j]); //cima
+                                //cima
+                                road.addNextCell(matrixCell[i - 1][j]); 
                                 break;
                             case 6:
-                                road.addNextCell(matrixCell[i][j + 1]);//direita
+                                //direita
+                                road.addNextCell(matrixCell[i][j + 1]);
                                 break;
                             case 7:
-                                road.addNextCell(matrixCell[i + 1][j]);//baixo
+                                //baixo
+                                road.addNextCell(matrixCell[i + 1][j]);
                                 break;
                             case 8:
-                                road.addNextCell(matrixCell[i][j - 1]);//esquerda
+                                //esquerda
+                                road.addNextCell(matrixCell[i][j - 1]);
                                 break;
                             case 9:
                                 road.addNextCell(matrixCell[i - 1][j]);
@@ -183,16 +191,20 @@ public class ControllerMap {
         if (currentDir > 4) {
             switch (currentDir) {
                 case 5:
-                    car.setImg(1); //cima
+                    //cima
+                    car.setImg(1); 
                     break;
                 case 6:
-                    car.setImg(2);//direita
+                    //direita
+                    car.setImg(2);
                     break;
                 case 7:
-                    car.setImg(3);//baixo
+                    //baixo
+                    car.setImg(3);
                     break;
                 case 8:
-                    car.setImg(4);//esquerda
+                    //esquerda
+                    car.setImg(4);
                     break;
                 case 9:
                     if (car.getNextDirection() == 0) {
