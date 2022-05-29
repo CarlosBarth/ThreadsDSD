@@ -5,6 +5,9 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Model.Car;
+import Observer.ObserverGame;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -75,6 +78,7 @@ public class ControllerCar extends Thread {
             sleep(velocidade);
             controller.setCarImage(car);
             this.car.getCurrentRoad().removeCar();
+            controller.decreaseQtdCars();
             controller.notifyRepaint();
             controller.getSpawn().removeCar();
         } catch (InterruptedException ex) {

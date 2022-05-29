@@ -148,7 +148,7 @@ public class ControllerMap {
                                 break;
                         }
                     } catch (Exception e) {
-                        //array fica vazio
+                       
                     }
                 }
             }
@@ -269,6 +269,7 @@ public class ControllerMap {
         setCarImage(newCar);
         ControllerCar driver = new ControllerCar(newCar, this.velocidadeCarro);
         driver.start();
+        addQtdCars();
         return newCar;
     }
 
@@ -342,6 +343,18 @@ public class ControllerMap {
     private void notifyQtdCars(int value) {
         for (ObserverGame obs : mapObserver) {
             obs.setQtdCars(value);
+        }
+    }
+
+    private void addQtdCars() {
+        for (ObserverGame obs : mapObserver) {
+            obs.addQtdCars();
+        }
+    }
+
+    public void decreaseQtdCars() {
+        for (ObserverGame obs : mapObserver) {
+            obs.decreaseQtdCars();
         }
     }
 

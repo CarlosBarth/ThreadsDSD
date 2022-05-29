@@ -59,7 +59,15 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
         btnConfirmarInsercao = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtQtd = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        try {
+            txtQtd =(javax.swing.JLabel)java.beans.Beans.instantiate(getClass().getClassLoader(), "View.Game_txtQtdAtual");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
+        txtQtdAtual = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -106,10 +114,12 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
 
         jLabel4.setText("Intervalo de  inserção");
 
-        jLabel2.setText("Quantidade Max de veículos: ");
+        jLabel2.setText("Quantidade de veículos na Via: ");
 
-        txtQtd.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        txtQtd.setText("0");
+        jLabel5.setText("Quantidade Max de veículos: ");
+
+        txtQtdAtual.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        txtQtdAtual.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -149,12 +159,17 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
                         .addGap(18, 18, 18)
                         .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(txtQtd)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addGap(90, 90, 90)
+                        .addComponent(txtQtd))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(txtQtdAtual)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,11 +196,15 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(62, 62, 62)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtQtdAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -204,9 +223,9 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1025, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -256,12 +275,14 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JSpinner spnVelocidade;
     private javax.swing.JSpinner spnVelocidadeInsercao;
     private javax.swing.JLabel txtQtd;
+    private javax.swing.JLabel txtQtdAtual;
     // End of variables declaration//GEN-END:variables
 
     JLabel imageLabel = new JLabel();
@@ -324,6 +345,18 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
     @Override
     public void setQtdCars(int value) {
         txtQtd.setText("" + value);
+    }
+    
+    @Override
+    public void addQtdCars() {
+        int i = Integer.parseInt(txtQtdAtual.getText());
+        txtQtdAtual.setText(i + 1 + "");
+    }
+    
+    @Override
+    public void decreaseQtdCars() {
+        int i = Integer.parseInt(txtQtdAtual.getText());
+        txtQtdAtual.setText(i - 1 + "");
     }
     
     @Override

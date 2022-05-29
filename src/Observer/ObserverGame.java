@@ -7,6 +7,10 @@ package Observer;
 public interface ObserverGame {
 
     void setQtdCars(int value);
+    
+    void addQtdCars();
+    
+    void decreaseQtdCars();
 
     void setQtdCarsError();
 
