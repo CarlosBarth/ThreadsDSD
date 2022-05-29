@@ -52,6 +52,7 @@ public class ControllerCar extends Thread {
                             numRand = 0;
                         }
                     }
+                    
                     this.car.getCurrentRoad().getNextCell().get(numRand).receiveCar(car);
                     this.car.getCurrentRoad().removeCar();
                     this.car.setOldRoad(this.car.getCurrentRoad());
@@ -59,11 +60,13 @@ public class ControllerCar extends Thread {
                     this.car.setNextDirection(numRand);
 
                 } else {
+                    
                     this.car.getCurrentRoad().getNextCell().get(0).receiveCar(car);
                     this.car.getCurrentRoad().removeCar();
                     this.car.setOldRoad(this.car.getCurrentRoad());
                     this.car.setCurrentRoad(this.car.getCurrentRoad().getNextCell().get(0));
                 }
+                
                 controller.setCarImage(car);
                 controller.notifyRepaint();
             }

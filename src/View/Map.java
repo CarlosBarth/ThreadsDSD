@@ -33,11 +33,13 @@ public class Map extends javax.swing.JFrame implements ObserverMap {
         controlMap = ControllerMap.getIntance();
         controlMap.attachMap(this);
         setResizable(false);
-        setTitle("Simulador Malha Viária");
+        setTitle("Trabalho DSD Malha Viária");
         controlMap.mapLoad();
         btnEncerrar.setEnabled(false);
-        spnVelocidade.setValue(300);
-        spnVelocidadeInsercao.setValue(500);
+        spnVelocidade.setValue(400);
+        edtQuantidadeVeiculos.setValue(10);
+        spnVelocidadeInsercao.setValue(650);
+        controlMap.setCars(10);
         
     }
 
@@ -204,7 +206,7 @@ public class Map extends javax.swing.JFrame implements ObserverMap {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(380, 380, 380)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1025, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
