@@ -35,7 +35,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="155" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,7 +56,7 @@
                                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                          <Component id="edtQuantidadeVeiculos" min="-2" pref="67" max="-2" attributes="0"/>
+                                          <Component id="iQtd" min="-2" pref="67" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
@@ -76,7 +76,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="spnVelocidadeInsercao" min="-2" pref="67" max="-2" attributes="0"/>
+                                          <Component id="iIntervalo" min="-2" pref="67" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="btnConfirmarInsercao" min="-2" pref="100" max="-2" attributes="0"/>
                                       </Group>
@@ -85,7 +85,7 @@
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="spnVelocidade" min="-2" pref="67" max="-2" attributes="0"/>
+                                          <Component id="iSpeed" min="-2" pref="67" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnConfirmarVelocidade" min="-2" pref="100" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -112,27 +112,26 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="edtQuantidadeVeiculos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="iQtd" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="spnVelocidadeInsercao" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="iIntervalo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" pref="16" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnConfirmarInsercao" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="spnVelocidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="iSpeed" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnConfirmarVelocidade" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnEncerrar" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="btnIniciar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
@@ -155,7 +154,7 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="862" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="956" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -167,7 +166,7 @@
             <Property name="text" type="java.lang.String" value="Quantidade de ve&#xed;culos simult&#xe2;neos "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="edtQuantidadeVeiculos">
+        <Component class="javax.swing.JSpinner" name="iQtd">
         </Component>
         <Component class="javax.swing.JButton" name="btnConfirmar">
           <Properties>
@@ -193,7 +192,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEncerrarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JSpinner" name="spnVelocidade">
+        <Component class="javax.swing.JSpinner" name="iSpeed">
         </Component>
         <Component class="javax.swing.JButton" name="btnConfirmarVelocidade">
           <Properties>
@@ -208,7 +207,7 @@
             <Property name="text" type="java.lang.String" value="Velocidade do ve&#xed;culo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="spnVelocidadeInsercao">
+        <Component class="javax.swing.JSpinner" name="iIntervalo">
         </Component>
         <Component class="javax.swing.JButton" name="btnConfirmarInsercao">
           <Properties>

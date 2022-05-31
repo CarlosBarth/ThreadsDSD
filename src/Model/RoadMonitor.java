@@ -18,6 +18,7 @@ public class RoadMonitor extends Cell {
             }
             setCar(car);
         } catch (Exception e) {
+            return;
         }
     }
 

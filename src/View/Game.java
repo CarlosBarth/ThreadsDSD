@@ -16,7 +16,7 @@ import Observer.ObserverGame;
  */
 public class Game extends javax.swing.JFrame implements ObserverGame {
     
-    private ControllerMap controlMap;
+    final private ControllerMap controlMap;
     
     private static Game instance = null;
     
@@ -36,9 +36,9 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
         setTitle("Trabalho DSD Malha Viária");
         controlMap.loadMap();
         btnEncerrar.setEnabled(false);
-        spnVelocidade.setValue(400);
-        edtQuantidadeVeiculos.setValue(10);
-        spnVelocidadeInsercao.setValue(650);
+        iSpeed.setValue(250);
+        iQtd.setValue(5);
+        iIntervalo.setValue(650);
         controlMap.setCars(10);
         
     }
@@ -48,14 +48,14 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        edtQuantidadeVeiculos = new javax.swing.JSpinner();
+        iQtd = new javax.swing.JSpinner();
         btnConfirmar = new javax.swing.JButton();
         btnIniciar = new javax.swing.JButton();
         btnEncerrar = new javax.swing.JButton();
-        spnVelocidade = new javax.swing.JSpinner();
+        iSpeed = new javax.swing.JSpinner();
         btnConfirmarVelocidade = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        spnVelocidadeInsercao = new javax.swing.JSpinner();
+        iIntervalo = new javax.swing.JSpinner();
         btnConfirmarInsercao = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -146,7 +146,7 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
                                     .addComponent(jLabel1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(14, 14, 14)
-                                        .addComponent(edtQuantidadeVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(iQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(85, 85, 85)
                                         .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -160,14 +160,14 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(spnVelocidadeInsercao, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(iIntervalo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnConfirmarInsercao, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel4))
                                 .addGap(21, 21, 21)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(spnVelocidade, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(iSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnConfirmarVelocidade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(32, 32, 32)
@@ -185,24 +185,23 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(edtQuantidadeVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnConfirmar)
-                            .addComponent(spnVelocidadeInsercao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(iIntervalo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnConfirmarInsercao)
-                            .addComponent(spnVelocidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnConfirmarVelocidade)
                             .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -218,7 +217,7 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 862, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -236,7 +235,7 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -247,7 +246,7 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
     }//GEN-LAST:event_btnEncerrarActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        controlMap.setCars(Integer.parseInt(edtQuantidadeVeiculos.getValue().toString()));
+        controlMap.setCars(Integer.parseInt(iQtd.getValue().toString()));
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
@@ -256,11 +255,11 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnConfirmarVelocidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarVelocidadeActionPerformed
-        controlMap.setCarSpeed(Integer.parseInt(spnVelocidade.getValue().toString()));
+        controlMap.setCarSpeed(Integer.parseInt(iSpeed.getValue().toString()));
     }//GEN-LAST:event_btnConfirmarVelocidadeActionPerformed
 
     private void btnConfirmarInsercaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarInsercaoActionPerformed
-        controlMap.setCarInsertion(Integer.parseInt(spnVelocidadeInsercao.getValue().toString()));
+        controlMap.setCarInsertion(Integer.parseInt(iIntervalo.getValue().toString()));
     }//GEN-LAST:event_btnConfirmarInsercaoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -269,7 +268,9 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
     private javax.swing.JButton btnConfirmarVelocidade;
     private javax.swing.JButton btnEncerrar;
     private javax.swing.JButton btnIniciar;
-    private javax.swing.JSpinner edtQuantidadeVeiculos;
+    private javax.swing.JSpinner iIntervalo;
+    private javax.swing.JSpinner iQtd;
+    private javax.swing.JSpinner iSpeed;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -278,8 +279,6 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JSpinner spnVelocidade;
-    private javax.swing.JSpinner spnVelocidadeInsercao;
     private javax.swing.JLabel txtQtd;
     private javax.swing.JLabel txtQtdAtual;
     // End of variables declaration//GEN-END:variables
