@@ -28,9 +28,9 @@ public class ControllerMap {
     private int qtdCars;
     private int velocidadeCarro = 300;
     private static ControllerMap instance = null;
-    private ControllerSpawner spawn;
+    private ControllerArtifacts spawn;
 
-    public ControllerSpawner getSpawn() {
+    public ControllerArtifacts getSpawn() {
         return spawn;
     }
 
@@ -71,10 +71,10 @@ public class ControllerMap {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        convertMatrixToCell(isMutex);
+        createCell(isMutex);
     }
 
-    private void convertMatrixToCell(boolean isMutex) {
+    private void createCell(boolean isMutex) {
         matrixCell = new Cell[this.rows][this.collumns];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < collumns; j++) {
@@ -84,11 +84,11 @@ public class ControllerMap {
                     if (isMutex) {
                         newMutex = new RoadMutex(matrix[i][j], i, j);
                         matrixCell[i][j] = newMutex;
-                        roadSpawner(newMutex);
+                        spawnRoadTile(newMutex);
                     } else {
                         newMonitor = new RoadMonitor(matrix[i][j], i, j);
                         matrixCell[i][j] = newMonitor;
-                        roadSpawner(newMonitor);
+                        spawnRoadTile(newMonitor);
                     }
                 } else {
                     matrixCell[i][j] = null;
@@ -108,7 +108,6 @@ public class ControllerMap {
                             case 1:
                                 //cima
                                 road.addNextCell(matrixCell[i - 1][j]); 
-
                                 break;
                             case 2:
                                 //direita
@@ -168,21 +167,20 @@ public class ControllerMap {
         return new ImageIcon();
     }
 
-    public void mapLoad() {
+    public void loadMap() {
         notifySetTable(matrix);
     }
 
     public void setCars(int value) {
         this.qtdCars = value;
         if (value < 0) {
-            notifyQtdCarsError();
+            //todo: tratar
             return;
         }
         notifyQtdCars(value);
     }
 
     public synchronized void setCarImage(Car car) {
-
         int currentDir = car.getCurrentRoad().getDirection();
         int oldDir = 0;
         if (car.getOldRoad() != null) {
@@ -285,7 +283,7 @@ public class ControllerMap {
         return newCar;
     }
 
-    private void roadSpawner(Cell road) {
+    private void spawnRoadTile(Cell road) {
         if (road != null) {
             if (road.getPosY() == 0) {
                 if (road.getDirection() == 2) {
@@ -316,7 +314,7 @@ public class ControllerMap {
         return new ImageIcon(matrixCell[row][collumn].getCar().getImg());
     }
 
-    public void setCarVelocity(int velocity) {
+    public void setCarSpeed(int velocity) {
         if (velocity >= 0) {
             this.velocidadeCarro = velocity;
 
@@ -332,7 +330,7 @@ public class ControllerMap {
 
     public void start() {
         notifyDisableButton(true);
-        spawn = new ControllerSpawner();
+        spawn = new ControllerArtifacts();
         spawn.start();
     }
 

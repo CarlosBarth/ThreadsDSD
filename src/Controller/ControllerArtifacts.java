@@ -7,12 +7,11 @@ import java.util.logging.Logger;
  *
  * @author Barth_Reichert
  */
-public class ControllerSpawner extends Thread {
+public class ControllerArtifacts extends Thread {
 
-    ControllerMap controller = ControllerMap.getIntance();
-
-    private boolean on = true;
+    ControllerMap ctrlMap = ControllerMap.getIntance();
     private int velocidade = 500;
+    private boolean on = true;
 
     public void setVelocidade(int velocidade) {
         this.velocidade = velocidade;
@@ -31,14 +30,14 @@ public class ControllerSpawner extends Thread {
     public void run() {
         while (on) {
             try {
-                if (totalCars < controller.getQtdCars()) {
-                    controller.spawnCar();
+                if (totalCars < ctrlMap.getQtdCars()) {
+                    ctrlMap.spawnCar();
                     totalCars++;
                     sleep(velocidade);
                 }
                 sleep(1);
             } catch (InterruptedException ex) {
-                Logger.getLogger(ControllerSpawner.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ControllerArtifacts.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

@@ -34,7 +34,7 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
         controlMap.attachMap(this);
         setResizable(false);
         setTitle("Trabalho DSD Malha Viária");
-        controlMap.mapLoad();
+        controlMap.loadMap();
         btnEncerrar.setEnabled(false);
         spnVelocidade.setValue(400);
         edtQuantidadeVeiculos.setValue(10);
@@ -257,7 +257,7 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnConfirmarVelocidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarVelocidadeActionPerformed
-        controlMap.setCarVelocity(Integer.parseInt(spnVelocidade.getValue().toString()));
+        controlMap.setCarSpeed(Integer.parseInt(spnVelocidade.getValue().toString()));
     }//GEN-LAST:event_btnConfirmarVelocidadeActionPerformed
 
     private void btnConfirmarInsercaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarInsercaoActionPerformed
@@ -385,6 +385,6 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
     
     @Override
     public void velocidadeInvalida() {
-        JOptionPane.showMessageDialog(null, "Você não pode informar uma quantidade\nnegativa para a velocidade", "Error", 2);
+        JOptionPane.showMessageDialog(null, "Favor informar um numero válido", "Error", 2);
     }
 }
