@@ -29,18 +29,13 @@ public class RoadMutex extends Cell {
         } catch (InterruptedException ex) {
             Logger.getLogger(RoadMutex.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            semaforo.release();
+//            semaforo.release();
         }
     }
     @Override
     public void removeCar() {
-        try {
-            semaforo.acquire();
-            setCar(null);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            semaforo.release();
-        }
+        //            semaforo.acquire();
+        setCar(null);
+        semaforo.release();
     }
 }

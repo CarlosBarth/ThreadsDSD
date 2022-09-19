@@ -337,7 +337,6 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
         } else {
             return controlMap.getRoad(rows, collumns);
         }
-        
     }
     
     @Override
@@ -360,7 +359,6 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
     @Override
     public void setQtdCarsError() {
         JOptionPane.showMessageDialog(null, "Você não pode informar uma quantidade\nnegativa de veículos", "Error", 2);
-        
     }
     
     @Override
@@ -376,9 +374,7 @@ public class Game extends javax.swing.JFrame implements ObserverGame {
         } else {
             btnIniciar.setEnabled(true);
             btnEncerrar.setEnabled(false);
-            
         }
-        
     }
     
     @Override
